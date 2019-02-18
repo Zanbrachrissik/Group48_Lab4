@@ -79,7 +79,8 @@ class Dishes extends Component {
       case "LOADING":
         return(
           <div id="loading">
-            <img src = "https://the-oak.co.uk/images/loading/loading.gif" alt = "loading"></img>
+            {/* <img src = "https://the-oak.co.uk/images/loading/loading.gif" alt = "loading"></img> */}
+            <img src = "/images/fruits-lemon.gif" alt = "loading"></img>
           </div>
         )
       case "LOADED":

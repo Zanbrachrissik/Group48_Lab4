@@ -25,3 +25,25 @@ input{
 #buttonBox{
     margin: 0px auto;text-align: center;
 }
+.buttontd{
+    width: 10px;
+    }
+    .buttontd button{
+    border: 0px solid red;
+    border-radius: 10px;
+    }
+    
+    .buttontd button img{
+    transition: all .1s ease-in-out;
+    width: 10px;
+    }
+    
+    .buttontd button img:hover{
+    transform: scale(1.2);
+    color: red;
+    }
+    
+    .pricetd{
+    white-space: nowrap;
+    text-align: right
+    }

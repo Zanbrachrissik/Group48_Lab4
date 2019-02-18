@@ -44,8 +44,8 @@ class DinnerModel extends ObservableModel{
     return allIngredients;
   }
 
-  getDishDetails(){
-    return fetch("http://sunset.nada.kth.se:8080/iprog/group/48/recipes/" + this.currentId+"/information",{
+  getDishDetails(id){
+    return fetch("http://sunset.nada.kth.se:8080/iprog/group/48/recipes/" + id +"/information",{
             headers:{   
                 'X-Mashape-Key': "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
             }

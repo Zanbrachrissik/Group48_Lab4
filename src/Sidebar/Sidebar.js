@@ -40,6 +40,14 @@ class Sidebar extends Component {
   };
 
   render() {
+    let selectedDish = this.state.selectedMenu.map((dish) => {
+      <tr key={dish.id}>
+        <td className="buttontd"><button onClick={ () => this.props.model.removeDishFromMenu(dish.id)}><img src='/images/remove-symbol.png'/></button></td>
+        <td>{dish.title}</td>
+        <td className="pricetd">{Math.round(dish.pricePerServing*this.state.numberOfGuests)/100} $</td>
+      </tr>
+    })
+
     return (
       <div  id="SidebarView" className="navbar-default" role="navigation" >
 			  <div className="navbar-header w-100">
@@ -67,14 +75,14 @@ class Sidebar extends Component {
 
           </div>
           <div id="totalPrice">
-            <span><span>{this.props.model.getTotalMenuPrice()}</span> SEK</span>
+            <span>{this.props.model.getTotalMenuPrice()}</span> SEK
           </div>
           <div id="buttonBox">
             <Link to="/overview">
             <input id="ConfirmDinner" type="button" className="btn btn-lg" disabled value="Confirm Dinner"/>
             </Link>
           </div>
-
+            {this.selectedMenu}
 			    </div>
 			</div>
     );

@@ -10,7 +10,18 @@ class Details extends Component{
     }
 
     render(){
-        return
+        return(
+            <div className="Details">
+                <div className="row">
+                    <div className="col-md-3 col-xs-12">
+                        <Sidebar model={this.props.model} />
+                    </div>
+                    <div className="col-md-9 col-xs-12">
+                        <Ingredients model={this.props.model} />
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
