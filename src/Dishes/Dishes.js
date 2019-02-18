@@ -13,11 +13,17 @@ class Dishes extends Component {
     this.handleDropdownChange = this.handleDropdownChange.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.refresh = this.refresh.bind(this)
+    this.showMore = this.showMore.bind(this)
     this.state = {
       status: 'LOADING',
       type: '',
       searchValue: ''
     }
+  }
+
+  showMore(){
+     modelInstance.showMore();
+     this.refresh();
   }
 
   handleDropdownChange(e) {
@@ -73,7 +79,7 @@ class Dishes extends Component {
       case "LOADING":
         return(
           <div id="loading">
-            <img src = "../../public/images/fruits-lemon.gif" alt = "loading"></img>
+            <img src = "https://the-oak.co.uk/images/loading/loading.gif" alt = "loading"></img>
           </div>
         )
       case "LOADED":
@@ -118,6 +124,10 @@ class Dishes extends Component {
         <div className="Dishes">
           <h3>Dishes</h3>
           <ul>{dishesList}</ul>
+        </div>
+
+        <div className="ShowMore">
+          <button onClick={this.showMore}>Show More</button>
         </div>
       </div>
       
