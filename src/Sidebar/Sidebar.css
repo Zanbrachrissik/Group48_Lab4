@@ -1,0 +1,27 @@
+h3{
+    display: inline;
+}
+
+#left{
+    float: left;
+}
+#right{
+    float: right;
+}
+
+#totalPrice{
+    width:100%; margin-top: 40px;text-align: right;border-top-style: solid;
+}
+
+input{
+    margin-top: 30px; background: #A9A9A9;
+}
+#guestNumber{
+    margin-right: 20px
+}
+#title{
+    background-color: #eee; margin-top: 20px;
+}
+#buttonBox{
+    margin: 0px auto;text-align: center;
+}
