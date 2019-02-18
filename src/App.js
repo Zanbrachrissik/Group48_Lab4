@@ -3,7 +3,9 @@ import { Route } from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
 import modelInstance from "./data/DinnerModel";
 import SelectDish from "./SelectDish/SelectDish";
+import Details from "./Details/Details"
 import "./App.css";
+import Dishes from "./Dishes/Dishes";
 
 class App extends Component {
   constructor(props) {
@@ -21,10 +23,9 @@ class App extends Component {
 
           {/* We rended diffrent component based on the path */}
           <Route exact path="/" component={Welcome} />
-          <Route
-            path="/search"
-            render={() => <SelectDish model={modelInstance} />}
-          />
+          <Route path="/search" render={() => <SelectDish model={modelInstance} />} />
+          <Route path="/details" render={() => <Details model={modelInstance} />} />
+
         </header>
       </div>
     );
