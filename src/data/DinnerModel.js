@@ -18,9 +18,10 @@ class DinnerModel extends ObservableModel{
   }
 
   setNumberOfGuests(num) {
+    if(num === parseInt(num, 10)){
     this.GuestsNumber = num;
-    console.log("Guests number sets to "+ this.GuestsNumber);
     this.notifyObservers();
+    }
   }
 
   getNumberOfGuests() {
@@ -72,7 +73,6 @@ class DinnerModel extends ObservableModel{
 	removeDishFromMenu(id) {
 		for(let dsh of this.menu){
 			if(dsh.id === id) {
-			    this.removeDishFromMenu(id);
 				var index = this.menu.indexOf(dsh);
 				this.menu.splice(index,1);
 				this.notifyObservers();

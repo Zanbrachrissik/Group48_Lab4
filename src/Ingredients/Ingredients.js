@@ -61,8 +61,6 @@ class Ingredients extends Component{
                     </div>
                 )
                 MoreInfo = this.state.dishDetails.sourceUrl
-                console.log(modelInstance.getFullMenu())
-                console.log(modelInstance.dishes)
                 
               return(
                   <div className="row">

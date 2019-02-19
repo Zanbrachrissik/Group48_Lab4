@@ -37,17 +37,14 @@ class Sidebar extends Component {
   // our handler for the input's on change event
   onNumberOfGuestsChanged = e => {
     this.props.model.setNumberOfGuests(e.target.value);
-
-    console.log(e.target.value)
   };
 
   render() {
-    console.log(this.state.selectedMenu)
     let selectedDish = this.state.selectedMenu.map((dish) => 
       <tr key="dish.id">
         <td className="buttontd"><button onClick={ () => this.props.model.removeDishFromMenu(dish.id)}><img src='/images/remove-symbol.png' alt="remove"/></button></td>
         <td>{dish.title}</td>
-        <td className="pricetd">{Math.round(dish.pricePerServing*this.state.numberOfGuests)/100} SEK</td>
+        <td className="pricetd">{Math.round(dish.pricePerServing*this.state.numberOfGuests)} SEK</td>
       </tr>
     )
 
@@ -63,6 +60,7 @@ class Sidebar extends Component {
 
         <div className="navbar-collapse collapse">
           <span id="guestNumber">People</span>
+          <input value={this.state.numberOfGuests} onChange={this.onNumberOfGuestsChanged}/>
           <select onChange={this.onNumberOfGuestsChanged}>
               <option value="1">1</option>
               <option value="2">2</option>
