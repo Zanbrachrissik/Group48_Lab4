@@ -37,16 +37,19 @@ class Sidebar extends Component {
   // our handler for the input's on change event
   onNumberOfGuestsChanged = e => {
     this.props.model.setNumberOfGuests(e.target.value);
+
+    console.log(e.target.value)
   };
 
   render() {
-    let selectedDish = this.state.selectedMenu.map((dish) => {
-      <tr key={dish.id}>
-        <td className="buttontd"><button onClick={ () => this.props.model.removeDishFromMenu(dish.id)}><img src='/images/remove-symbol.png'/></button></td>
+    console.log(this.state.selectedMenu)
+    let selectedDish = this.state.selectedMenu.map((dish) => 
+      <tr key="dish.id">
+        <td className="buttontd"><button onClick={ () => this.props.model.removeDishFromMenu(dish.id)}><img src='/images/remove-symbol.png' alt="remove"/></button></td>
         <td>{dish.title}</td>
-        <td className="pricetd">{Math.round(dish.pricePerServing*this.state.numberOfGuests)/100} $</td>
+        <td className="pricetd">{Math.round(dish.pricePerServing*this.state.numberOfGuests)/100} SEK</td>
       </tr>
-    })
+    )
 
     return (
       <div  id="SidebarView" className="navbar-default" role="navigation" >
@@ -60,20 +63,18 @@ class Sidebar extends Component {
 
         <div className="navbar-collapse collapse">
           <span id="guestNumber">People</span>
-          <select>
-              <option value="1" onChange={this.onNumberOfGuestsChanged}>1</option>
-              <option value="2" onChange={this.onNumberOfGuestsChanged}>2</option>
-              <option value="3" onChange={this.onNumberOfGuestsChanged}>3</option>
-              <option value="4" onChange={this.onNumberOfGuestsChanged}>4</option>
-              <option value="5" onChange={this.onNumberOfGuestsChanged}>5</option>
+          <select onChange={this.onNumberOfGuestsChanged}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
           </select>
           <div className="col-xs-12" id="title">
             <span id="left">Dish Name</span>
             <span id="right">Price</span>
           </div>
-          <div id="selectedDish">
-
-          </div>
+          <table><tbody>{selectedDish}</tbody></table>
           <div id="totalPrice">
             <span>{this.props.model.getTotalMenuPrice()}</span> SEK
           </div>
@@ -82,7 +83,6 @@ class Sidebar extends Component {
             <input id="ConfirmDinner" type="button" className="btn btn-lg" disabled value="Confirm Dinner"/>
             </Link>
           </div>
-            {this.selectedMenu}
 			    </div>
 			</div>
     );

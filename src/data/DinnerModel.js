@@ -8,6 +8,7 @@ class DinnerModel extends ObservableModel{
       this.dishes = [];
 
       this._observers = [];
+      //用户选的menu
       this.menu = [];
 
       this.GuestsNumber = 1;
@@ -19,7 +20,7 @@ class DinnerModel extends ObservableModel{
   setNumberOfGuests(num) {
     this.GuestsNumber = num;
     console.log("Guests number sets to "+ this.GuestsNumber);
-    this.notifyObservers('GuestsChanged');
+    this.notifyObservers();
   }
 
   getNumberOfGuests() {
@@ -68,24 +69,22 @@ class DinnerModel extends ObservableModel{
   }
 
 
-  removeDishFromMenu(id) {
-    var dish = this.getDish(id);
-    var index = this.menu.indexOf(dish);
-    this.menu.splice(index,1);
-    this.notifyObservers();
-  }
+	removeDishFromMenu(id) {
+		for(let dsh of this.menu){
+			if(dsh.id === id) {
+			    this.removeDishFromMenu(id);
+				var index = this.menu.indexOf(dsh);
+				this.menu.splice(index,1);
+				this.notifyObservers();
+			    return;
+			}
+		}
+	}
 
-  addDishToMenu(id) {
-    for(let dsh of this.menu){
-      if(dsh.id === id) {
-          this.removeDishFromMenu(id);
-          return;
-      }
-    }
-    var dish = this.getDish(id);
-    this.menu.push(dish);
-    this.notifyObservers();
-  }
+	addDishToMenu(dish) {
+		this.menu.push(dish);
+		this.notifyObservers();
+	}
 
   setCurrentId(id){
     this.currentId=id;
