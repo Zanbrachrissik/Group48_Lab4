@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+    this.onNumberOfGuestsChanged = this.onNumberOfGuestsChanged.bind(this);
 
     // we put on state the properties we want to use and modify in the component
     this.state = {
       numberOfGuests: this.props.model.getNumberOfGuests(),
       selectedMenu: this.props.model.getFullMenu()
-    };
+    }
   }
 
   // this methods is called by React lifecycle when the
@@ -60,8 +61,8 @@ class Sidebar extends Component {
 
         <div className="navbar-collapse collapse">
           <span id="guestNumber">People</span>
-          <input value={this.state.numberOfGuests} onChange={this.onNumberOfGuestsChanged}/>
-          <select onChange={this.onNumberOfGuestsChanged}>
+          {/* <input type="text" value={this.state.numberOfGuests} onChange={this.onNumberOfGuestsChanged}/> */}
+          <select value={this.props.model.getNumberOfGuests()} onChange={this.onNumberOfGuestsChanged}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -78,7 +79,7 @@ class Sidebar extends Component {
           </div>
           <div id="buttonBox">
             <Link to="/overview">
-            <input id="ConfirmDinner" type="button" className="btn btn-lg" disabled value="Confirm Dinner"/>
+            <input id="ConfirmDinner" type="button" className="btn btn-lg" disabled={this.state.selectedMenu === [] ? true : false} value="Confirm Dinner"/>
             </Link>
           </div>
 			    </div>

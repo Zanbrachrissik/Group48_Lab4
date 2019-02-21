@@ -17,8 +17,14 @@ class Dishes extends Component {
     this.state = {
       status: 'LOADING',
       type: '',
-      searchValue: ''
+      filter: ''
     }
+  }
+
+
+  componentWillUnmount = () => {
+    localStorage.setItem('type', this.state.type)
+    localStorage.setItem('filter', this.state.filter)
   }
 
   showMore(){
@@ -31,8 +37,6 @@ class Dishes extends Component {
       //status: 'LOADING',
       type: e.target.value
     })
-    console.log(e.target.value);
-    console.log(this.state.type);
   }
 
   handleInputChange(e) {
@@ -47,7 +51,7 @@ class Dishes extends Component {
       status: 'LOADING'
     })
     modelInstance
-      .getAllDishes(this.state.type,this.state.searchValue)
+      .getAllDishes(this.state.type,this.state.filter)
       .then(dishes => {
         this.setState({
           status: "LOADED",
@@ -103,8 +107,8 @@ class Dishes extends Component {
       <div>
         <div className="row">
           <div id="searchBar">
-            <input onChange={this.handleInputChange} id="searchForDish" placeholder="Search for a dish..."/>
-            <select onChange={this.handleDropdownChange} id="searchDishType">
+            <input value={this.state.filter} onChange={this.handleInputChange} id="searchForDish" placeholder="Search for a dish..."/>
+            <select value={this.state.type} onChange={this.handleDropdownChange} id="searchDishType">
               <option value="">All dishes</option>
               <option value="Appetizer">Appetizer</option>
               <option value="Main Course">Main Course</option>

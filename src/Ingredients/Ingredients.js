@@ -35,6 +35,12 @@ class Ingredients extends Component{
         })
       }
 
+    // this is called when component is removed from the DOM
+    // good place to remove observer
+    componentWillUnmount() {
+      this.props.model.removeObserver(this);
+    }
+
     render(){
         let MoreInfo = null;
         let ingredientsList = null;

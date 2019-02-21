@@ -8,24 +8,32 @@ class DinnerModel extends ObservableModel{
       this.dishes = [];
 
       this._observers = [];
-      //用户选的menu
-      this.menu = [];
 
       this.GuestsNumber = 1;
       this.currentId = 0;
       this.dishNumber = 10;
-
+      
+      //用户选的menu
+      this.menu = JSON.parse(localStorage.getItem("selDishes"));
+        if (this.menu == null) {
+          this.menu = [];
+        }
   }
 
+  
+
   setNumberOfGuests(num) {
-    if(num === parseInt(num, 10)){
     this.GuestsNumber = num;
+    localStorage.setItem('numGuests', this.GuestsNumber);
     this.notifyObservers();
-    }
   }
 
   getNumberOfGuests() {
-    return this.GuestsNumber;
+    if(localStorage.getItem('numGuests') == null){
+      return this.GuestsNumber;
+    }else{
+      return localStorage.getItem('numGuests');
+    }
   }
 
   getSelectedDish(type) {
@@ -82,7 +90,8 @@ class DinnerModel extends ObservableModel{
 	}
 
 	addDishToMenu(dish) {
-		this.menu.push(dish);
+    this.menu.push(dish);
+    localStorage.setItem("selDishes", JSON.stringify(this.menu));
 		this.notifyObservers();
 	}
 
