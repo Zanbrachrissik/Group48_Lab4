@@ -1,6 +1,39 @@
-.Overview {
+.Overview{
+    text-align: center
+}
+.heading {
     width: 100%;
-    background-color: #FFF;
+    border-bottom-style: solid
+}
+.buttons{
+
+    float: right;
+}
+.totalPrice{
     text-align: center;
+}
+.dishItems{
+    text-align: center;
+    }
     
+    .dishImgDiv {
+    margin-right: 10px;
+    width: 150px;
+    height: 150px;
+    }
+    
+    .dishImgDiv img{
+    height:150px;
+    width:100%;
+    object-fit: cover;
+    border:0px;
+    border-radius: 5px;
+    }
+
+    .printButton{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .selectedDish{
+        border-right-style: solid
     }

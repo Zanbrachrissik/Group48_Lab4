@@ -39,7 +39,7 @@ class Overview extends Component {
   render() {
 
     let selectedDishes = this.state.menu.map((dish) =>
-      <div className="dishItemDiv">
+      <div className="dishItemDiv col-md-3 col-xs-12" key="dish.id">
         <div className="dishImgDiv"><img alt="" src={dish.image}/></div>
         <div className="dishTitle">{dish.title}</div>
       </div>
@@ -47,18 +47,24 @@ class Overview extends Component {
 
     return (
       <div className="Overview">
-        <div className="heading">Dinner for {this.state.numberOfGuests} guests</div>
-        <div className="buttons">
-          <Link to="/search">
-            <button className="primary-btn">Go back to edit menu</button>
-          </Link>
-          <Link to="/print">
-            <button className="primary-btn">Print full recipe</button>
-          </Link>
+        <div className="heading w-100 p-3">
+            <h2>Dinner for {this.state.numberOfGuests} guests</h2>
+            <div className="buttons">
+            <Link to="/search">
+                <button className="primary-btn">Go back to edit menu</button>
+            </Link>
+            </div>
         </div>
-        <div>{selectedDishes}</div>
-        <div className="totalPrice">Total price for dinner: SEK {Math.round(this.props.model.getTotalMenuPrice())}</div>
-        
+        <div className="row">
+            <div className="col-md-9 selectedDishes">{selectedDishes}</div>
+            <div className="totalPrice col-md-3">Total price for dinner: SEK {Math.round(this.props.model.getTotalMenuPrice())}</div>
+        </div>
+        <div id="printButton">
+            <Link to="/print">
+                <button className="btn btn-primary btn-lg">Print full recipe</button>
+            </Link>
+        </div>
+          
       </div>
     );
   }
