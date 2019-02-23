@@ -39,7 +39,7 @@ class Overview extends Component {
   render() {
 
     let selectedDishes = this.state.menu.map((dish) =>
-      <div className="dishItemDiv col-md-3 col-xs-12" key="dish.id">
+      <div className="dishItemDiv col-md-4 col-xs-12" key="dish.id">
         <div className="dishImgDiv"><img alt="" src={dish.image}/></div>
         <div className="dishTitle">{dish.title}</div>
       </div>
@@ -56,8 +56,11 @@ class Overview extends Component {
             </div>
         </div>
         <div className="row">
-            <div className="col-md-9 selectedDishes">{selectedDishes}</div>
-            <div className="totalPrice col-md-3">Total price for dinner: SEK {Math.round(this.props.model.getTotalMenuPrice())}</div>
+            <div className="col-md-9 col-xs-12 selectedDishes">{selectedDishes}</div>
+            <div className="totalPrice col-md-3">
+                <p>Total price:</p>
+                <h2>SEK {Math.round(this.props.model.getTotalMenuPrice())}</h2>
+            </div>
         </div>
         <div id="printButton">
             <Link to="/print">

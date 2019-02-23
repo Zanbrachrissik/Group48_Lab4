@@ -7,7 +7,6 @@ import Details from "./Details/Details"
 import Overview from './Overview/Overview';
 import Print from './Print/Print'
 import "./App.css";
-import Dishes from "./Dishes/Dishes";
 
 class App extends Component {
   constructor(props) {

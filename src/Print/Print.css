@@ -1,0 +1,25 @@
+.heading {
+    width: 100%;
+    border-bottom-style: solid
+}
+.buttons{
+    display: inline;
+    float: right;
+}
+.dishimg img{
+    height: 200px;
+    width: 200px;
+}
+.dishimg{
+    text-align: center;
+}
+.title{
+    text-align: center;
+}
+.instructions{
+    text-align: center;
+}
+.dishes{
+    width: 100%;
+    margin-top: 20px;
+}

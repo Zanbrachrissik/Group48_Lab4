@@ -39,26 +39,32 @@ class Print extends Component {
   render() {
 
     let selectedDishes = this.state.menu.map((dish) =>
-      <div className="row">
-        <div className="col-sm-6"><img alt="" src={dish.image}/>{dish.title}</div>
-        <div className="col-sm-6">{dish.instructions}</div>
+      <div className="dishes" key={dish.id}>
+        <div className="dishimg col-md-4 col-xs-12"><img alt="" src={dish.image}/></div>
+        <div className="title col-md-4 col-xs-12">{dish.title}</div>
+        <div className="instructions col-md-4 col-xs-12">
+            <p>Preparations</p>
+            {/* {dish.instructions} */}
+            {dish.analyzedInstructions[0].steps.forEach((step)=>
+                <p>{step.number+' '+step.step}</p>
+            )}
+        </div>
       </div>
     )
 
     return (
       <div className="Print">
-        <div className="heading">Dinner for {this.state.numberOfGuests} guests</div>
-        <div className="buttons">
-          <Link to="/search">
-            <button className="primary-btn">Go back to edit menu</button>
-          </Link>
-          <Link to="/search">
-            <button className="primary-btn">Print full recipe</button>
-          </Link>
+        <div className="heading w-100 p-3">
+            <h2>Dinner for {this.state.numberOfGuests} guests</h2>
+            <div className="buttons">
+            <Link to="/search">
+                <button className="primary-btn">Go back to edit menu</button>
+            </Link>
+            </div>
         </div>
-        <div>{selectedDishes}</div>
-        <div className="totalPrice">Total price for dinner: SEK {Math.round(this.props.model.getTotalMenuPrice())}</div>
-        
+        <div className="row">
+            {selectedDishes}
+        </div>
       </div>
     );
   }

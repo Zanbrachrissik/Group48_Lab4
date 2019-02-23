@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Ingredients.css';
 import { Link } from 'react-router-dom';
-import modelInstance from '../data/DinnerModel';
 
 class Ingredients extends Component{
     constructor(props){

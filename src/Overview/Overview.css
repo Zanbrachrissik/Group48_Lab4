@@ -1,15 +1,19 @@
 .Overview{
     text-align: center
 }
+h2{
+    display: inline;
+}
 .heading {
     width: 100%;
     border-bottom-style: solid
 }
 .buttons{
-
+    display: inline;
     float: right;
 }
 .totalPrice{
+    border-left-style: solid;
     text-align: center;
 }
 .dishItems{
