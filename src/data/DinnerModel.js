@@ -74,7 +74,7 @@ class DinnerModel extends ObservableModel{
       totalPrice += dish.pricePerServing;
     })
     var sumPrice = totalPrice * this.GuestsNumber;
-    return sumPrice;
+    return Math.round(sumPrice);
   }
 
 

@@ -21,12 +21,6 @@ class Dishes extends Component {
     }
   }
 
-
-  componentWillUnmount = () => {
-    localStorage.setItem('type', this.state.type)
-    localStorage.setItem('filter', this.state.filter)
-  }
-
   showMore(){
      modelInstance.showMore();
      this.refresh();
@@ -42,7 +36,7 @@ class Dishes extends Component {
   handleInputChange(e) {
     this.setState({
       //status: 'LOADING',
-      searchValue: e.target.value
+      filter: e.target.value
     })
   }
 
