@@ -10,7 +10,7 @@ class Ingredients extends Component{
             DishID: window.location.href.substr(window.location.href.lastIndexOf('/') + 1), 
             numberOfGuests: this.props.model.getNumberOfGuests()
         }
-    }
+    }             
 
     componentDidMount = () => {
         // when data is retrieved we update the state

@@ -121,7 +121,7 @@ class Dishes extends Component {
         </div>
 
         <div className="Dishes">
-          <h3>Dishes</h3>
+          <h3 className="dishesTitle">Dishes</h3>
           <ul>{dishesList}</ul>
         </div>
 
