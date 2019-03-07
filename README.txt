@@ -14,4 +14,5 @@ You can delete a dish whenever you want.
 Change guest number.
 Confirm your dinner and print the recipe.
 
-The full demo:
+The full demo
+https://vimeo.com/user93027699/review/321944224/ad22398d6c
