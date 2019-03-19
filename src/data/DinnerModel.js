@@ -82,7 +82,8 @@ class DinnerModel extends ObservableModel{
 		for(let dsh of this.menu){
 			if(dsh.id === id) {
 				var index = this.menu.indexOf(dsh);
-				this.menu.splice(index,1);
+        this.menu.splice(index,1);
+        localStorage.setItem("selDishes", JSON.stringify(this.menu));
 				this.notifyObservers();
 			    return;
 			}
